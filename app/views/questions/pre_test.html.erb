@@ -1,0 +1,15 @@
+<h1>Pre Test</h1>
+
+<%= form_for :question, url: 'questions/check_answers' do |form| %>
+  <% @questions.each do |question| %>
+    <p>
+      <h6><%= question.text %></h6>
+      <% question.choices.each do |choice| %>
+        <label><%= form.radio_button question.id, 1 %> <%= choice.text %></label>
+      <% end %>
+    </p>
+  <% end %>
+  <div class="actions">
+    <%= form.submit 'Submit Answers' %>
+  </div>
+<% end %>

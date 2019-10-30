@@ -1,0 +1,15 @@
+<h1>Pre Test</h1>
+
+<%= form_with url: '/pretest', method: 'post' do |form| %>
+  <% @questions.each do |question| %>
+    <p>
+      <h6><%= form.label :question, question.text %></h6>
+      <% question.choices.each do |choice| %>
+        <label><%= form.radio_button question.id, choice.id %> <%= choice.text %></label>
+      <% end %>
+    </p>
+  <% end %>
+  <div class="actions">
+    <%= form.submit 'Submit Answers' %>
+  </div>
+<% end %>
