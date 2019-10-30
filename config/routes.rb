@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pretest#index'
+  root to: 'pages#info'
   resources :questions
   resources :ideas
   # resources :pretest
