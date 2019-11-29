@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'pages/info'
   get 'pages/video'
+  get 'pages/survey'
+  post 'pages/survey', to: 'pages#save_info'
+  get 'pages/stats'
 
   get 'pretest', to: 'pretest#index'
   post 'pretest', to: 'pretest#check_answers'

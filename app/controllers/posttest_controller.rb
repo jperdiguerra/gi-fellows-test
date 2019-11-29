@@ -1,6 +1,12 @@
 class PosttestController < ApplicationController
   def index
-    @questions = Question.all
+    if current_user.progress == User::PROGRESS[:video]
+      current_user.update_attribute(:progress, User::PROGRESS[:posttest])
+    elsif current_user.progress != User::PROGRESS[:posttest]
+      redirect_to PAGES[current_user.progress.to_s]
+      return
+    end
+    @questions = Question.all.order('random()')
   end
 
   def check_answers
@@ -14,11 +20,15 @@ class PosttestController < ApplicationController
       end
       answers[question.id] = answer
     end
-    current_user.update_attributes(posttest_score: correct, posttest_answers: answers)
+    current_user.update_attributes(posttest_score: correct, posttest_answers: answers, progress: User::PROGRESS[:posttest_result])
     redirect_to '/posttest/result'
   end
 
   def result
+    if current_user.progress != User::PROGRESS[:posttest_result]
+      redirect_to PAGES[current_user.progress.to_s]
+      return
+    end
     @questions = Question.all
     @choices_text = { 0 => '' }
     Choice.all.each { |choice| @choices_text[choice.id] = choice.text }

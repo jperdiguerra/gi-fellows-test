@@ -1,0 +1,74 @@
+<div class='survey-container'>
+  <%= form_with url: '/pages/survey', method: 'post' do |form| %>
+
+    <div class="actions">
+      <div class="input-field col s6">
+        <%= form.text_field(:name, :placeholder => 'Name', :required => true, :class => 'validate') %>
+        <label for="name">Name</label>
+      </div>
+
+      <div class="input-field col s6">
+        <%= form.number_field(:age, :placeholder => 'Age', :required => true, :class => 'validate') %>
+        <label for="age">Age</label>
+      </div>
+
+      <div class='survey-text'>Gender</div>
+      <p>
+        <label>
+          <%= form.radio_button 'gender', '0', :required => true, :class => 'with-gap' %>
+          <span>Male</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <%= form.radio_button 'gender', '1', :required => true, :class => 'with-gap' %>
+          <span>Female</span>
+        </label>
+      </p>
+
+      <div class='survey-text'>Level of Training</div>
+      <p>
+        <label>
+          <%= form.radio_button 'training', '0', :required => true, :class => 'with-gap' %>
+          <span>Consultants</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <%= form.radio_button 'training', '1', :required => true, :class => 'with-gap' %>
+          <span>Fellows-in-training</span>
+        </label>
+      </p>
+
+      <div class='survey-text'>Number of endoscopies conducted annually</div>
+      <p>
+        <label>
+          <%= form.radio_button 'endoscopies', '0', :required => true, :class => 'with-gap' %>
+          <span>< 100</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <%= form.radio_button 'endoscopies', '1', :required => true, :class => 'with-gap' %>
+          <span>>= 100</span>
+        </label>
+      </p>
+
+      <div class='survey-text'>Use of IEE-screening endoscopy</div>
+      <p>
+        <label>
+          <%= form.radio_button 'iee', '0', :required => true, :class => 'with-gap' %>
+          <span>Use</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <%= form.radio_button 'iee', '1', :required => true, :class => 'with-gap' %>
+          <span>Do not use</span>
+        </label>
+      </p>
+
+      <%= form.submit 'Start Pretest' %>
+    </div>
+  <% end %>
+</div>

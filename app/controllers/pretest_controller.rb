@@ -1,5 +1,9 @@
 class PretestController < ApplicationController
   def index
+    if current_user.progress != User::PROGRESS[:pretest]
+      redirect_to PAGES[current_user.progress.to_s]
+      return
+    end
     @questions = Question.all
   end
 
@@ -11,10 +15,11 @@ class PretestController < ApplicationController
         correct += 1
       end
     end
-    current_user.update_attributes(pretest_score: correct)
+    current_user.update_attributes(pretest_score: correct, progress: User::PROGRESS[:pretest_result])
     redirect_to '/pretest/result'
   end
 
   def result
+    redirect_to PAGES[current_user.progress.to_s] if current_user.progress != User::PROGRESS[:pretest_result]
   end
 end

@@ -1,3 +1,21 @@
 // Place all the styles related to the questions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.question-container {
+  margin-top: 50px;
+}
+
+.question-text {
+  font-size: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+img {
+  height: 50%;
+  width: 50%;
+  margin-bottom: 10px;
+}

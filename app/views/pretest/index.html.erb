@@ -1,13 +1,23 @@
-<h1>Pre Test</h1>
+<h4>Pre Test</h4>
 
 <%= form_with url: '/pretest', method: 'post' do |form| %>
   <% @questions.each do |question| %>
-    <p>
-      <h6><%= form.label :question, question.text %></h6>
-      <% question.choices.each do |choice| %>
-        <label><%= form.radio_button question.id, choice.id %> <%= choice.text %></label>
+    <div class='question-container'>
+      <blockquote>
+        <div class='question-text'><%= question.text %></div>
+      </blockquote>
+      <% if question.image %>
+        <%= image_tag(question.image) %>
       <% end %>
-    </p>
+      <% question.choices.each do |choice| %>
+        <p>
+          <label>
+            <%= form.radio_button question.id, choice.id, :class => 'with-gap' %>
+            <span><%= choice.text %></span>
+          </label>
+        </p>
+      <% end %>
+    </div>
   <% end %>
   <div class="actions">
     <%= form.submit 'Submit Answers' %>

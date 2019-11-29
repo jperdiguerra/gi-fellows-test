@@ -1,9 +1,12 @@
-<h1>Posttest Result</h1>
+<h4>Posttest Result</h4>
 <p>You got <%= current_user.posttest_score %> correct answer/s.</p>
 <br><br><br>
 <% @questions.each do |question| %>
   <p>
     <h6><%= question.text %></h6>
+    <% if question.image %>
+      <%= image_tag(question.image) %>
+    <% end %>
     <ul>
       <% question.choices.each do |choice| %>
         <li><%= choice.text %></li>
@@ -14,3 +17,4 @@
   </p>
   <br>
 <% end %>
+<h4>Thank you for participating in this research!</h4>

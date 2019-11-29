@@ -1,0 +1,52 @@
+<h4>Statistics</h4>
+
+<div>
+  <h6>Age</h6>
+  <p>< 40: <%= @stats[:age_lt40] %></p>
+  <p>>= 40: <%= @stats[:age_gte40] %></p>
+</div>
+
+<div>
+  <h6>Gender</h6>
+  <p>Male: <%= @stats[:gender_male] %></p>
+  <p>Female: <%= @stats[:gender_female] %></p>
+</div>
+
+<div>
+  <h6>Level of Training</h6>
+  <p>Consultants: <%= @stats[:training_consultant] %></p>
+  <p>Fellows-in-Training: <%= @stats[:training_fellow] %></p>
+</div>
+
+<div>
+  <h6>Numnber of endoscopies conducted annually</h6>
+  <p>< 100: <%= @stats[:endoscopies_lt100] %></p>
+  <p>>= 100: <%= @stats[:endoscopies_gte100] %></p>
+</div>
+
+<div>
+  <h6>Use of IEE-screening endoscopy</h6>
+  <p>Use: <%= @stats[:iee_use] %></p>
+  <p>Do not use: <%= @stats[:iee_do_not_use] %></p>
+</div>
+
+<h6>Scores</h6>
+<table class="highlight">
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Pretest</th>
+        <th>Posttest</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.pretest_score %></td>
+        <td><%= user.posttest_score %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

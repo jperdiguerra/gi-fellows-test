@@ -13,6 +13,8 @@ gem 'carrierwave'
 gem 'net-ssh'
 gem 'pry', '~> 0.12.2'
 gem 'devise'
+gem 'materialize-sass', '~> 1.0.0'
+gem 'jquery-rails'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
