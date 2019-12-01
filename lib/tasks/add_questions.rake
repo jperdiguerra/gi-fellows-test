@@ -108,9 +108,9 @@ namespace :questions do
         text: 'Identify',
         choices: [
           { text: 'Normal gastric body mucosa', correct: false },
-          { text: 'Normal gastric antral mucosa', correct: true },
+          { text: 'Normal gastric antral mucosa', correct: false },
           { text: 'HP (+) gastric body mucosa', correct: false },
-          { text: 'HP (+) gastric antral mucosa', correct: false },
+          { text: 'HP (+) gastric antral mucosa', correct: true },
           { text: 'Intestinal Metaplasia', correct: false }
         ],
         image: 'q11.png'
