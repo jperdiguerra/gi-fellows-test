@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
     '4' => '/pretest/result',
     '5' => '/pages/video',
     '6' => '/posttest',
-    '7' => '/posttest/result'
+    '7' => '/posttest/result',
+    '8' => '/posttest2',
+    '9' => '/posttest2/result'
   }.freeze
 end

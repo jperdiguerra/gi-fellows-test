@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   get 'posttest', to: 'posttest#index'
   post 'posttest', to: 'posttest#check_answers'
   get 'posttest/result', to: 'posttest#result'
+
+  get 'posttest2', to: 'posttest2#index'
+  post 'posttest2', to: 'posttest2#check_answers'
+  get 'posttest2/result', to: 'posttest2#result'
 end

@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   serialize :posttest_answers
+  serialize :posttest2_answers
 
   PROGRESS = {
     consent: 1,
@@ -12,6 +13,8 @@ class User < ApplicationRecord
     pretest_result: 4,
     video: 5,
     posttest: 6,
-    posttest_result: 7
+    posttest_result: 7,
+    posttest2: 8,
+    posttest2_result: 9
   }.freeze
 end

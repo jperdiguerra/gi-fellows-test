@@ -1,12 +1,5 @@
-<br><br>
-<% if @days_after_posttest >= 7 %>
-  <a class="waves-effect waves-light btn-large" href='/posttest2'>Proceed to post test 2</a>
-<% else %>
-  <p>Check again after <%= 7 - @days_after_posttest %> day/s to proceed with post test 2.</p>
-<% end %>
-
-<h4>Post test Result</h4>
-<p>You got <%= current_user.posttest_score %> out of 45 correct answer/s.</p>
+<h4>Post test 2 Result</h4>
+<p>You got <%= current_user.posttest2_score %> out of 45 correct answer/s.</p>
 <br>
 <% @questions.each do |question| %>
   <p>

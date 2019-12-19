@@ -1,8 +1,8 @@
-class PosttestController < ApplicationController
+class Posttest2Controller < ApplicationController
   def index
-    if current_user.progress == User::PROGRESS[:video]
-      current_user.update_attribute(:progress, User::PROGRESS[:posttest])
-    elsif current_user.progress != User::PROGRESS[:posttest]
+    if current_user.progress == User::PROGRESS[:posttest_result]
+      current_user.update_attribute(:progress, User::PROGRESS[:posttest2])
+    elsif current_user.progress != User::PROGRESS[:posttest2]
       redirect_to PAGES[current_user.progress.to_s]
       return
     end
@@ -20,20 +20,17 @@ class PosttestController < ApplicationController
       end
       answers[question.id] = answer
     end
-    current_user.update_attributes(posttest_score: correct, posttest_answers: answers, progress: User::PROGRESS[:posttest_result])
-    redirect_to '/posttest/result'
+    current_user.update_attributes(posttest2_score: correct, posttest2_answers: answers, progress: User::PROGRESS[:posttest2_result])
+    redirect_to '/posttest2/result'
   end
 
   def result
-    if current_user.progress != User::PROGRESS[:posttest_result]
+    if current_user.progress != User::PROGRESS[:posttest2_result]
       redirect_to PAGES[current_user.progress.to_s]
       return
     end
     @questions = Question.all
     @choices_text = { 0 => '' }
-    if current_user.progress == User::PROGRESS[:posttest_result]
-      @days_after_posttest = (DateTime.current.to_i - current_user.updated_at.to_i)/(24 * 60 * 60)
-    end
     Choice.all.each { |choice| @choices_text[choice.id] = choice.text }
   end
 end
