@@ -12,7 +12,7 @@
         <li><%= choice.text %></li>
       <% end %>
     </ul><br>
-    <h6>You answered: <%= @choices_text[current_user.posttest_answers[question.id]] %></h6>
+    <h6>You answered: <%= @choices_text[current_user.posttest2_answers[question.id]] %></h6>
     <h6>Correct answer: <%= @choices_text[question.correct_answer.id] %></h6>
   </p>
   <br>
