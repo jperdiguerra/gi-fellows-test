@@ -44,7 +44,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td><a href="/pages/stats/<%= user.id %>"><%= user.name %></a></td>
         <td><%= user.pretest_score %></td>
         <td><%= user.posttest_score %></td>
         <td><%= user.posttest2_score %></td>

@@ -1,0 +1,61 @@
+<h4>User <%= @user.name %> Statistics</h4>
+
+<br>
+<% if @user.posttest_score >= 0 && @user.posttest_answers %>
+  <div>
+    <h6>Post test</h6>
+    <table class="highlight">
+      <thead>
+        <tr>
+            <th>Question Number</th>
+            <th>Correct</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% num = 0 %>
+        <% @questions.each do |question| %>
+          <% num += 1 %>
+          <tr>
+            <td><%= num %></td>
+            <% if question.correct_answer.try(:id) == @user.posttest_answers[question.id] %>
+              <td>True</td>
+            <% else %>
+              <td>False</td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+
+<br>
+<% if @user.posttest2_score >= 0 && @user.posttest_answers %>
+  <div>
+    <h6>Post test 2</h6>
+    <table class="highlight">
+      <thead>
+        <tr>
+            <th>Question Number</th>
+            <th>Correct</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% num = 0 %>
+        <% @questions.each do |question| %>
+          <% num += 1 %>
+          <tr>
+            <td><%= num %></td>
+            <% if question.correct_answer.try(:id) == @user.posttest2_answers[question.id] %>
+              <td>True</td>
+            <% else %>
+              <td>False</td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

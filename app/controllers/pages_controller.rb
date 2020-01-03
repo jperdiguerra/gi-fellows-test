@@ -39,6 +39,17 @@ class PagesController < ApplicationController
     }
   end
 
+  def user_stats
+    @user = User.find_by_id(params[:id])
+    if @user
+      @questions = Question.all
+      @choices_text = { 0 => '' }
+      Choice.all.each { |choice| @choices_text[choice.id] = choice.text }
+    else
+      redirect_to '/pages/stats'
+    end
+  end
+
   def save_info
     name = params[:name]
     current_user.update_attributes(

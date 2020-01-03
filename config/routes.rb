@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'pages/survey'
   post 'pages/survey', to: 'pages#save_info'
   get 'pages/stats'
+  get 'pages/stats/:id', to: 'pages#user_stats'
 
   get 'pretest', to: 'pretest#index'
   post 'pretest', to: 'pretest#check_answers'
