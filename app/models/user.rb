@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   serialize :posttest_answers
   serialize :posttest2_answers
+  serialize :posttest3_answers
 
   PROGRESS = {
     consent: 1,
@@ -15,6 +16,8 @@ class User < ApplicationRecord
     posttest: 6,
     posttest_result: 7,
     posttest2: 8,
-    posttest2_result: 9
+    posttest2_result: 9,
+    posttest3: 10,
+    posttest3_result: 11
   }.freeze
 end

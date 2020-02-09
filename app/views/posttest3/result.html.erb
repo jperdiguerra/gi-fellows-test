@@ -1,0 +1,20 @@
+<h4>Post test 3 Result</h4>
+<p>You got <%= current_user.posttest3_score %> out of 45 correct answer/s.</p>
+<br>
+<% @questions.each do |question| %>
+  <p>
+    <h6><%= question.text %></h6>
+    <% if question.image %>
+      <%= image_tag(question.image) %>
+    <% end %>
+    <ul>
+      <% question.choices.each do |choice| %>
+        <li><%= choice.text %></li>
+      <% end %>
+    </ul><br>
+    <h6>You answered: <%= @choices_text[current_user.posttest3_answers[question.id]] %></h6>
+    <h6>Correct answer: <%= @choices_text[question.correct_answer.id] %></h6>
+  </p>
+  <br>
+<% end %>
+<h4>Thank you for participating in this research!</h4>

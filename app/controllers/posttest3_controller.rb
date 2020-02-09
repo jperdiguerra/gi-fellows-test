@@ -1,12 +1,10 @@
-class Posttest2Controller < ApplicationController
+class Posttest3Controller < ApplicationController
   def index
-    if current_user.progress == User::PROGRESS[:posttest_result]
-      current_user.update_attribute(:progress, User::PROGRESS[:posttest2])
-    elsif current_user.progress != User::PROGRESS[:posttest2]
+    if current_user.progress != User::PROGRESS[:posttest3]
       redirect_to PAGES[current_user.progress.to_s]
       return
     end
-    @questions = Question.default.order('random()')
+    @questions = Question.posttest3
   end
 
   def check_answers
@@ -20,16 +18,16 @@ class Posttest2Controller < ApplicationController
       end
       answers[question.id] = answer
     end
-    current_user.update_attributes(posttest2_score: correct, posttest2_answers: answers, progress: User::PROGRESS[:posttest2_result])
-    redirect_to '/posttest2/result'
+    current_user.update_attributes(posttest3_score: correct, posttest3_answers: answers, progress: User::PROGRESS[:posttest3_result])
+    redirect_to '/posttest3/result'
   end
 
   def result
-    if current_user.progress != User::PROGRESS[:posttest2_result]
+    if current_user.progress != User::PROGRESS[:posttest3_result]
       redirect_to PAGES[current_user.progress.to_s]
       return
     end
-    @questions = Question.default
+    @questions = Question.posttest3
     @choices_text = { 0 => '' }
     Choice.all.each { |choice| @choices_text[choice.id] = choice.text }
   end

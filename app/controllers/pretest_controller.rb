@@ -4,7 +4,7 @@ class PretestController < ApplicationController
       redirect_to PAGES[current_user.progress.to_s]
       return
     end
-    @questions = Question.all
+    @questions = Question.default
   end
 
   def check_answers

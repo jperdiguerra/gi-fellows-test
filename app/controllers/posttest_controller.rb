@@ -6,7 +6,7 @@ class PosttestController < ApplicationController
       redirect_to PAGES[current_user.progress.to_s]
       return
     end
-    @questions = Question.all.order('random()')
+    @questions = Question.default.order('random()')
   end
 
   def check_answers
@@ -29,7 +29,7 @@ class PosttestController < ApplicationController
       redirect_to PAGES[current_user.progress.to_s]
       return
     end
-    @questions = Question.all
+    @questions = Question.default
     @choices_text = { 0 => '' }
     if current_user.progress == User::PROGRESS[:posttest_result]
       @days_after_posttest = (DateTime.current.to_i - current_user.updated_at.to_i)/(24 * 60 * 60)

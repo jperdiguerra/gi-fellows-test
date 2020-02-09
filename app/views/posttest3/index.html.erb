@@ -1,0 +1,25 @@
+<h4>Post Test 3</h4>
+
+<%= form_with url: '/posttest3', method: 'post' do |form| %>
+  <% @questions.each do |question| %>
+    <div class='question-container'>
+      <blockquote>
+        <div class='question-text'><%= question.text %></div>
+      </blockquote>
+      <% if question.image %>
+        <%= image_tag(question.image) %>
+      <% end %>
+      <% question.choices.each do |choice| %>
+        <p>
+          <label>
+            <%= form.radio_button question.id, choice.id, :class => 'with-gap' %>
+            <span><%= choice.text %></span>
+          </label>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= form.submit 'Submit Answers', :class => 'btn waves-effect waves-light' %>
+  </div>
+<% end %>

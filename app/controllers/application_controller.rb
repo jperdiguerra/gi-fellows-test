@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
     '6' => '/posttest',
     '7' => '/posttest/result',
     '8' => '/posttest2',
-    '9' => '/posttest2/result'
+    '9' => '/posttest2/result',
+    '10' => '/posttest3',
+    '11' => '/posttest3/result',
   }.freeze
 end

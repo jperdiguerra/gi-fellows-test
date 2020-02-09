@@ -23,4 +23,8 @@ Rails.application.routes.draw do
   get 'posttest2', to: 'posttest2#index'
   post 'posttest2', to: 'posttest2#check_answers'
   get 'posttest2/result', to: 'posttest2#result'
+
+  get 'posttest3', to: 'posttest3#index'
+  post 'posttest3', to: 'posttest3#check_answers'
+  get 'posttest3/result', to: 'posttest3#result'
 end

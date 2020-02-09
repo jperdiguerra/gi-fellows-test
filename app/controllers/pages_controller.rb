@@ -42,7 +42,7 @@ class PagesController < ApplicationController
   def user_stats
     @user = User.find_by_id(params[:id])
     if @user
-      @questions = Question.all
+      @questions = Question.default
       @choices_text = { 0 => '' }
       Choice.all.each { |choice| @choices_text[choice.id] = choice.text }
     else
